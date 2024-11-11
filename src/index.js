@@ -1,3 +1,4 @@
+const path = require('path')
 const { app, BrowserWindow } = require('electron')
 
 console.dir(app)
@@ -29,7 +30,8 @@ app.on('ready', () => {
 		app.quit()
 	})
 
-	initialWindow.loadURL('https://devdocs.io/')
+	// initialWindow.loadURL('https://devdocs.io/')
+	initialWindow.loadFile( path.join(__dirname, 'renderer', 'index.html') )
 })
 
 //app.quit()
