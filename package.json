@@ -1,0 +1,24 @@
+{
+  "name": "electron-platzi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "electron index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Juxn89/electron-platzi.git"
+  },
+  "keywords": [],
+  "author": "Juan Gómez << gb.jc@outlook.com >>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Juxn89/electron-platzi/issues"
+  },
+  "homepage": "https://github.com/Juxn89/electron-platzi#readme",
+  "devDependencies": {
+    "electron": "33.2.0"
+  }
+}
