@@ -1,7 +1,13 @@
 const path = require('path')
-const { app, BrowserWindow } = require('electron')
+import { app, BrowserWindow } from 'electron'
+
+import devtools from './devtools'
 
 console.dir(app)
+
+if(process.env.NODE_ENV === 'development') {
+	devtools()
+}
 
 app.on('before-quit', () => {
   console.log('Saliendo...')
@@ -32,6 +38,7 @@ app.on('ready', () => {
 
 	// initialWindow.loadURL('https://devdocs.io/')
 	initialWindow.loadFile( path.join(__dirname, 'renderer', 'index.html') )
+	initialWindow.toggleDevTools()
 })
 
 //app.quit()
