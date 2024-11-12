@@ -38,7 +38,7 @@ app.on('ready', () => {
 
 	// initialWindow.loadURL('https://devdocs.io/')
 	initialWindow.loadFile( path.join(__dirname, 'renderer', 'index.html') )
-	initialWindow.toggleDevTools()
+	// initialWindow.toggleDevTools()
 })
 
 //app.quit()
