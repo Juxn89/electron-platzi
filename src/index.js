@@ -19,7 +19,11 @@ app.on('ready', () => {
 		height: 600,
 		title: 'Hello world',
 		center: true,
-		maximizable: false
+		maximizable: false,
+		webPreferences: {
+      nodeIntegration: true, // Habilita el uso de módulos de Node.js en el proceso de renderizado
+      contextIsolation: false // Desactiva el aislamiento de contexto
+    }
 	})
 
 	initialWindow.on('move', () => {
@@ -38,7 +42,7 @@ app.on('ready', () => {
 
 	// initialWindow.loadURL('https://devdocs.io/')
 	initialWindow.loadFile( path.join(__dirname, 'renderer', 'index.html') )
-	// initialWindow.toggleDevTools()
+	initialWindow.toggleDevTools()
 })
 
 //app.quit()
