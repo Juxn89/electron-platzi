@@ -1,5 +1,5 @@
 const path = require('path')
-import { app, BrowserWindow } from 'electron'
+import { app, BrowserWindow, ipcMain } from 'electron'
 
 import devtools from './devtools'
 
@@ -43,6 +43,11 @@ app.on('ready', () => {
 	// initialWindow.loadURL('https://devdocs.io/')
 	initialWindow.loadFile( path.join(__dirname, 'renderer', 'index.html') )
 	//initialWindow.toggleDevTools()
+})
+
+ipcMain.on('ping', (event, arg) => {
+	console.log(`Reciving ping - ${ arg }`)
+	event.sender.send('pong', new Date())
 })
 
 //app.quit()

@@ -1,12 +1,15 @@
 import url from 'url'
 import path from 'path'
 import applyFilter from './filters'
+import { setIpc, sendIpc } from './ipcRendererEvents'
 
 window.addEventListener('load', () => {
 	// document.querySelector('#message').innerHTML = 'This is a message from JS.'
+	setIpc()
 	addImagesEvents()
 	searImagesEvent()
 	selectEvent()
+	openDirectory()
 })
 
 function addImagesEvents() {
@@ -60,5 +63,12 @@ function selectEvent() {
 	const element = document.querySelector('#filters')
 	element.addEventListener('change', function() {
 		applyFilter(this.value, document.querySelector('#image-displayed'))
+	})
+}
+
+function openDirectory() {
+	const btnOnpenDirectory = document.querySelector('#open-directory')
+	btnOnpenDirectory.addEventListener('click', () => {
+		sendIpc()
 	})
 }
