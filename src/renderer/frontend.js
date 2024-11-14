@@ -1,10 +1,12 @@
 import url from 'url'
 import path from 'path'
+import applyFilter from './filters'
 
 window.addEventListener('load', () => {
 	// document.querySelector('#message').innerHTML = 'This is a message from JS.'
 	addImagesEvents()
 	searImagesEvent()
+	selectEvent()
 })
 
 function addImagesEvents() {
@@ -16,6 +18,8 @@ function addImagesEvents() {
 }
 
 function changeImage(node) {
+	if(!node) return
+
 	document.querySelector('li.selected').classList.remove('selected')
 	node.classList.add('selected')
 	document.querySelector('#image-displayed').setAttribute('src', node.querySelector('img').src)
@@ -50,4 +54,11 @@ function searImagesEvent() {
 function selectFirstImage() {
 	const image = document.querySelector('li.list-group-item:not(.hidden)')
 	changeImage(image)
+}
+
+function selectEvent() {
+	const element = document.querySelector('#filters')
+	element.addEventListener('change', function() {
+		applyFilter(this.value, document.querySelector('#image-displayed'))
+	})
 }
