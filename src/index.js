@@ -3,14 +3,14 @@ import { app, BrowserWindow } from 'electron'
 
 import devtools from './devtools'
 
-console.dir(app)
+// console.dir(app)
 
 if(process.env.NODE_ENV === 'development') {
 	devtools()
 }
 
 app.on('before-quit', () => {
-  console.log('Saliendo...')
+  // console.log('Saliendo...')
 })
 
 app.on('ready', () => {
@@ -24,7 +24,7 @@ app.on('ready', () => {
 
 	initialWindow.on('move', () => {
 		const position = initialWindow.getPosition()
-		console.log(`The window position is: ${ position }`)
+		// console.log(`The window position is: ${ position }`)
 	})
 
 	initialWindow.once('ready-to-show', () => {
